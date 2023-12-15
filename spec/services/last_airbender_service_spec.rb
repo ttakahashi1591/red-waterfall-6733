@@ -22,5 +22,12 @@ RSpec.describe LastAirbenderService, type: :service do
       expect(search_results).to be_a(Array)
       expect(search_results[0]).to be_a(Hash)
     end
+
+    it "#charaters_by_nation, returns parsed json data" do
+      search_results = LastAirbenderService.new.characters_by_nation("Fire Nation")
+
+      expect(search_results).to be_a(Array)
+      expect(search_results[0]).to be_a(Hash)
+    end
   end
 end

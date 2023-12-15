@@ -11,7 +11,11 @@ class LastAirbenderService < ApplicationService
     json_parse(get_url('/api/v1/characters'))
   end
 
-  def character_name_search(name)
-    json_parse(get_url("api/v1/characters?name=#{name}"))
+  def characters_by_nation(nation)
+    json_parse(get_url("/api/v1/characters?affiliation=#{nation}&perPage=500&page=1"))
   end
+
+  # def character_name_search(name)
+  #   json_parse(get_url("/api/v1/characters?name=#{name}"))
+  # end
 end

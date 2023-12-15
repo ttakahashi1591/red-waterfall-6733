@@ -1,9 +1,19 @@
 <%= render partial: "shared/nav" %>
 
-<h1> Discover The Last Airbender Characters </h1>
+<h1> Characters of this Nation </h1>
 
-<%= form_with url: search_path, method: :get, local: true do |form| %>
-  <%= form.label :name, 'Search By Character Name', require: true %>
-  <%= form.text_field :name %>
-  <%= form.submit 'Search' %>
+<h3> Total Members: <%= @facade.count %> </h3>
+
+<% @facade.first(25).each do |character| %>
+  <ul class="member-list">
+    <li>
+      <h2> Name: <%= character.name %> </h2>
+      <% if character.photoUrl.present? %>
+        <%= image_tag character.photoUrl, alt: character.name %>
+      <% end %>
+      <p> Allies: <%= character.allies.any? ? character.allies.join(', ') : 'None' %> </p>
+      <p> Enemies: <%= character.enemies.any? ? character.enemies.join(', ') : 'None' %> </p>
+      <p>Affiliations: <%= character.affiliation %></p>    
+    </li>
+  </ul>
 <% end %>

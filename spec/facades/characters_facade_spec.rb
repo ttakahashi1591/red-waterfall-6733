@@ -22,16 +22,28 @@ RSpec.describe CharactersFacade, type: :facade do
       expect(character.first).to respond_to(:affiliation)
     end
 
-    it "#character_by_name" do
-      character = @facade.character_by_name("Aang")
-require 'pry'; binding.pry
-      expect(character).to be_an(Array)
-      expect(character.first).to respond_to(:character_id)
-      expect(character.first).to respond_to(:allies)
-      expect(character.first).to respond_to(:enemies)
-      expect(character.first).to respond_to(:photoUrl)
-      expect(character.first).to respond_to(:name)
-      expect(character.first).to respond_to(:affiliation)
+    it "#character_by_affiliation" do
+    character = @facade.character_by_affiliation("Fire Nation")
+
+    expect(character).to be_an(Array)
+    expect(character.first).to respond_to(:character_id)
+    expect(character.first).to respond_to(:allies)
+    expect(character.first).to respond_to(:enemies)
+    expect(character.first).to respond_to(:photoUrl)
+    expect(character.first).to respond_to(:name)
+    expect(character.first).to respond_to(:affiliation)
     end
   end
 end
+
+    # it "#character_by_name" do
+    #   character = @facade.character_by_name("Aang")
+
+    #   expect(character).to be_an(Array)
+    #   expect(character.first).to respond_to(:character_id)
+    #   expect(character.first).to respond_to(:allies)
+    #   expect(character.first).to respond_to(:enemies)
+    #   expect(character.first).to respond_to(:photoUrl)
+    #   expect(character.first).to respond_to(:name)
+    #   expect(character.first).to respond_to(:affiliation)
+    # end

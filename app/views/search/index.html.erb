@@ -1,0 +1,9 @@
+<%= render partial: "shared/nav" %>
+
+<h1> Discover The Last Airbender Characters </h1>
+
+<%= form_with url: search_path, method: :get, local: true do |form| %>
+  <%= form.label :name, 'Search By Character Name', require: true %>
+  <%= form.text_field :name %>
+  <%= form.submit 'Search' %>
+<% end %>

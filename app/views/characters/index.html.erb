@@ -1,0 +1,16 @@
+<%= render partial: "shared/nav" %>
+
+<h1> The Last Airbender Characters </h1>
+
+<% @facade.each do |character| %>
+  <ul id=<%="character-#{character.character_id}"%>>
+    <li>
+      <h2><%= character.name %></h2>
+      <img src="<%= character.photoUrl %>" alt="<%= character.name %> Image">
+
+      <p>Allies: <%= character.allies.join(', ') %></p>
+      <p>Enemies: <%= character.enemies.join(', ') %></p>
+      <p>Affiliation: <%= character.affiliation %></p>
+    </li>
+  </ul>
+<% end %>
